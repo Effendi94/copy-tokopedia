@@ -11,6 +11,16 @@ Future<bool> putStorage(String key, String value) async {
   return await prefs.setString(key, value);
 }
 
+Future<bool?> getBoolStorage(String key) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getBool(key);
+}
+
+Future<bool> putBoolStorage(String key, bool value) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return await prefs.setBool(key, value);
+}
+
 Future<bool> removeStorage(String key) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   return await prefs.remove(key);

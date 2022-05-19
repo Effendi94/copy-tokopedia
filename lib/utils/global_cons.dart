@@ -12,3 +12,4 @@ const String secondaryAppName = "Duplicate";
 const String authDataKey = 'authData';
 const String userDataKeuy = 'userData';
 const String langKey = 'lang';
+const String darkModeKey = 'isDarkMode';

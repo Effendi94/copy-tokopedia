@@ -1,15 +1,34 @@
-import 'package:copy_tokopedia/core.dart';
+// project imports:
+import 'core.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class SplashScreen extends StatelessWidget {
+  final String appVersion;
+  const SplashScreen({Key? key, required this.appVersion}) : super(key: key);
 
-  @override
-  State<StatefulWidget> createState() => SplashScreenState();
-}
-
-class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Stack(
+        children: [
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Get.changeTheme(
+                    Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+                putBoolStorage(darkModeKey, !Get.isDarkMode);
+              },
+              child: const Text('Change Theme'),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Text('Version $appVersion'),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
