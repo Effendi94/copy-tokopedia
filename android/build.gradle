@@ -1,9 +1,9 @@
 buildscript {
     ext {
-        build_gradle        = '4.1.0'
+        build_gradle        = '7.0.2'
         kotlin_version      = '1.6.10'
-        compileSdkVersion   = 30
-        targetSdkVersion    = 30
+        compileSdkVersion   = 31
+        targetSdkVersion    = 31
         minSdkVersion       = 21
     }
     repositories {
