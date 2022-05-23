@@ -4,7 +4,18 @@ import 'package:copy_tokopedia/widgets/form/default_pin_input.dart';
 class VerificationCodePage extends StatelessWidget {
   const VerificationCodePage({Key? key}) : super(key: key);
 
-  void _resendCode() {}
+  void _resendCode() {
+    Get.bottomSheet(
+      Center(
+        child: CircularProgressIndicator(
+          color: MyColors.appSecondaryColors,
+        ),
+      ),
+    );
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.back();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
