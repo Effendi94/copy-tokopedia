@@ -1,5 +1,5 @@
 import 'package:copy_tokopedia/core.dart';
-import 'package:copy_tokopedia/pages/welcome/components/get_started.dart';
+import 'package:copy_tokopedia/pages/welcome/components/xcore.dart';
 
 class WelcomeScreen extends StatelessWidget {
   final controller = Get.put(WelcomeGetxController());
@@ -7,6 +7,11 @@ class WelcomeScreen extends StatelessWidget {
 
   void _goToStart() {
     debugPrint('Go to Start');
+    Get.bottomSheet(
+      PhoneNumberWidget(),
+      backgroundColor: MyColors.white,
+      isScrollControlled: true,
+    );
   }
 
   @override
@@ -30,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
             top: 20,
             right: 10,
             child: TextButton(
-              child: const Text(
+              child: Text(
                 'Skip',
                 style: TextStyle(
                   fontFamily: robotoSemiBold,
