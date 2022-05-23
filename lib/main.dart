@@ -1,31 +1,9 @@
+// package imports:
 import 'package:package_info_plus/package_info_plus.dart';
 
+// project imports
 import 'core.dart';
 import 'lang/trans_services.dart';
-
-const ColorScheme colorScheme = ColorScheme(
-  primary: MyColors.appPrimaryColors,
-  onPrimary: Colors.white,
-  primaryContainer: MyColors.appPrimaryColors,
-  secondary: Colors.red,
-  secondaryContainer: Colors.redAccent,
-  surface: Colors.white,
-  onSurface: Colors.white,
-  background: Colors.grey,
-  error: Colors.redAccent,
-  onError: Colors.red,
-  onSecondary: Colors.redAccent,
-  onBackground: Colors.grey,
-  brightness: Brightness.light,
-);
-
-final ThemeData kLightTheme = ThemeData.light().copyWith(
-  colorScheme: colorScheme,
-);
-
-final ThemeData kDarkTheme = ThemeData.dark().copyWith(
-  colorScheme: colorScheme,
-);
 
 void main() {
   runApp(const MyApp());
@@ -55,19 +33,18 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       putStorage(langKey, "ID");
       res = "ID";
     }
-    debugPrint("lang: $res");
+    // debugPrint("lang: $res");
     var locale = Locale('en', res);
     Get.updateLocale(locale);
   }
 
   void initAppTheme() async {
     var res = await getBoolStorage(darkModeKey);
-    debugPrint('$res');
     if (res == null) {
       putBoolStorage(darkModeKey, false);
       res = false;
     }
-    Get.changeTheme(res ? ThemeData.dark() : ThemeData.light());
+    Get.changeTheme(res ? ThemeConfig.darkTheme : ThemeConfig.lightTheme);
   }
 
   Future<void> _getAppInfo() async {
@@ -81,7 +58,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: '$appName $secondaryAppName',
-      theme: Get.isDarkMode ? kDarkTheme : kLightTheme,
+      theme: ThemeConfig.lightTheme,
+      darkTheme: ThemeConfig.darkTheme,
       translations: TranslationService(),
       locale: TranslationService.locale,
       fallbackLocale: TranslationService.fallbackLocale,

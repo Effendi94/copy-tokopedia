@@ -2,6 +2,7 @@
 export 'package:flutter/material.dart';
 
 export 'splash.dart';
+export 'theme_data.dart';
 
 // GET
 export 'package:get/get.dart';

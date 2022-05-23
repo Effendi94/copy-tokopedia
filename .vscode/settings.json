@@ -1,5 +1,5 @@
 {
-    "dart.flutterSdkPath": ".fvm/flutter_sdk",
+    "dart.flutterSdkPath": "C:/Users/1339/fvm/default/bin",
     // Remove .fvm files from search
     "search.exclude": {
         "**/.fvm": true
