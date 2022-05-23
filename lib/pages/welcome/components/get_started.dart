@@ -14,8 +14,6 @@ class GetStartedWidget extends StatelessWidget {
     required this.goToStart,
   }) : super(key: key);
 
-  void _getStarted() {}
-
   void _next() {
     controller.pageController.nextPage(
       duration: const Duration(milliseconds: 500),
@@ -51,7 +49,7 @@ class GetStartedWidget extends StatelessWidget {
           padding: const EdgeInsets.all(15),
           child: ElevatedButton(
             onPressed: listImages.length == controller.selectedImage.value + 1
-                ? _getStarted
+                ? goToStart
                 : _next,
             style: ElevatedButton.styleFrom(
               minimumSize: const Size.fromHeight(50), // NEW

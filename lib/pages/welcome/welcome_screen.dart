@@ -5,7 +5,9 @@ class WelcomeScreen extends StatelessWidget {
   final controller = Get.put(WelcomeGetxController());
   WelcomeScreen({Key? key}) : super(key: key);
 
-  void _goToStart() {}
+  void _goToStart() {
+    debugPrint('Go to Start');
+  }
 
   @override
   Widget build(BuildContext context) {
