@@ -1,8 +1,19 @@
-import 'package:copy_tokopedia/core.dart';
+// package imports:
 import 'package:pinput/pinput.dart';
 
+// project imports:
+import 'package:copy_tokopedia/core.dart';
+
 class DefaultPinInput extends StatelessWidget {
-  const DefaultPinInput({Key? key}) : super(key: key);
+  final String? Function(String?)? validator;
+  final Function(String)? onCompleted;
+  final Function(String)? onSubmitted;
+  const DefaultPinInput({
+    Key? key,
+    required this.validator,
+    this.onCompleted,
+    this.onSubmitted,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +54,12 @@ class DefaultPinInput extends StatelessWidget {
           focusedPinTheme: focusedPinTheme,
           submittedPinTheme: submittedPinTheme,
           length: 6,
-          validator: (s) {
-            return s == '2222' ? null : 'Pin is incorrect';
-          },
+          validator: validator,
           errorBuilder: _errorBuilder,
           pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
           showCursor: true,
-          onCompleted: (pin) => debugPrint(pin),
+          // onCompleted: onCompleted,
+          onSubmitted: onSubmitted,
         ),
       ),
     );

@@ -8,6 +8,11 @@ const bool appOneSignalActivated = true;
 const String appName = "Tokopedia";
 const String secondaryAppName = "Duplicate";
 
+// ------- config OneSignal ---------
+const String oneSignalAppID = "a35a0799-ff5f-477d-b2a2-f4782a6d0bf4";
+
+// ------- config Senntry.io ---------
+
 // ------- Local Storage Key ---------
 const String authDataKey = 'authData';
 const String userDataKeuy = 'userData';

@@ -2,7 +2,8 @@ import 'package:copy_tokopedia/core.dart';
 import 'package:copy_tokopedia/widgets/form/default_pin_input.dart';
 
 class VerificationCodePage extends StatelessWidget {
-  const VerificationCodePage({Key? key}) : super(key: key);
+  final formKey = GlobalKey<FormState>();
+  VerificationCodePage({Key? key}) : super(key: key);
 
   void _resendCode() {
     Get.bottomSheet(
@@ -15,6 +16,11 @@ class VerificationCodePage extends StatelessWidget {
     Future.delayed(const Duration(seconds: 2), () {
       Get.back();
     });
+  }
+
+  void submitCode(String inputCode) {
+    debugPrint('submit');
+    if (inputCode == '222222') {}
   }
 
   @override
@@ -63,7 +69,13 @@ class VerificationCodePage extends StatelessWidget {
                 ),
               ),
             ),
-            const DefaultPinInput(),
+            Form(
+              key: formKey,
+              child: DefaultPinInput(
+                validator: Validator.validateNumber,
+                onSubmitted: submitCode,
+              ),
+            ),
             Text(
               "Didn't receive code?",
               style: TextStyles.defaults,

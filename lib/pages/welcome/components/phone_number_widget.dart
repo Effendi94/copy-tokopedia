@@ -11,7 +11,7 @@ class PhoneNumberWidget extends StatelessWidget {
   void _next() {
     Get.back();
     Get.bottomSheet(
-      const VerificationCodePage(),
+      VerificationCodePage(),
       isScrollControlled: true,
       backgroundColor: MyColors.white,
     );
@@ -27,9 +27,12 @@ class PhoneNumberWidget extends StatelessWidget {
           children: [
             IconButton(
               onPressed: Get.back,
+              padding: EdgeInsets.zero,
+              alignment: Alignment.centerLeft,
               icon: Icon(
                 Icons.close_rounded,
                 color: MyColors.black,
+                size: 24,
               ),
             ),
             Text(
