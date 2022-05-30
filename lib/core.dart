@@ -3,7 +3,7 @@ export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
 
 export 'splash.dart';
-export 'theme_config.dart';
+export 'utils/theme_config.dart';
 
 // GET
 export 'package:get/get.dart';

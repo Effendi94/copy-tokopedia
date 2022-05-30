@@ -1,6 +1,5 @@
+import 'package:copy_tokopedia/core.dart';
 import 'package:flutter/cupertino.dart';
-
-import 'core.dart';
 
 class ThemeConfig {
   static ThemeData createTheme({
