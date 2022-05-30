@@ -12,6 +12,8 @@ const String secondaryAppName = "Duplicate";
 const String oneSignalAppID = "a35a0799-ff5f-477d-b2a2-f4782a6d0bf4";
 
 // ------- config Senntry.io ---------
+const String sentryDSN =
+    "https://9bf3ad0f800e405aa8eb7bf1419638ef@o1042214.ingest.sentry.io/6435817";
 
 // ------- Local Storage Key ---------
 const String authDataKey = 'authData';

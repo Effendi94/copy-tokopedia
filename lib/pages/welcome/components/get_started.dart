@@ -16,7 +16,7 @@ class GetStartedWidget extends StatelessWidget {
 
   void _next() {
     controller.pageController.nextPage(
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.easeIn,
     );
   }

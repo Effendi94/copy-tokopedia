@@ -39,11 +39,12 @@ class SplashState extends State<SplashScreen>
   void initScreen() async {
     await animationController.forward().whenComplete(
       () {
-        Get.offAll(
-          () => WelcomeScreen(),
-          transition: Transition.zoom,
-          duration: const Duration(milliseconds: 1000),
-        );
+        Get.offAndToNamed(welcomeScreen);
+        // Get.offAll(
+        //   () => WelcomeScreen(),
+        //   transition: Transition.zoom,
+        //   duration: const Duration(milliseconds: 1000),
+        // );
       },
     );
   }

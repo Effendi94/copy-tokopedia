@@ -13,12 +13,19 @@ class TextStyles {
 
   static TextStyle defaults = const TextStyle(
     fontFamily: robotoRegular,
-    fontSize: 13,
+    fontSize: 14,
   );
 
-  static TextStyle title = const TextStyle(
+  static TextStyle danger = TextStyle(
+    fontFamily: robotoRegular,
+    fontSize: 14,
+    color: MyColors.danger,
+  );
+
+  static TextStyle title = TextStyle(
     fontFamily: robotoBold,
     fontSize: 18,
+    color: MyColors.black,
   );
 
   static TextStyle subTitle = const TextStyle(
@@ -38,6 +45,7 @@ class TextStyles {
 
   static TextStyle inputError = TextStyle(
     fontFamily: robotoSemiBold,
+    fontSize: 12,
     color: MyColors.danger,
   );
 }

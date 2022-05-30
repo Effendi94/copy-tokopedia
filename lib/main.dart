@@ -2,13 +2,33 @@
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 // project imports
 import 'core.dart';
 import 'lang/trans_services.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  WidgetsBinding.instance!.renderView.automaticSystemUiAdjustment = false;
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    // statusBarColor: MyColors.appPrimaryColor,
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+    systemNavigationBarColor: Colors.white,
+    systemNavigationBarIconBrightness: Brightness.dark,
+  ));
+  await SentryFlutter.init(
+    (options) {
+      options.dsn = sentryDSN;
+      // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+      // We recommend adjusting this value in production.
+      options.tracesSampleRate = 1.0;
+      options.useNativeBreadcrumbTracking();
+    },
+    appRunner: () => runApp(const MyApp()),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -57,6 +77,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       home: SplashScreen(
         appVersion: appVersion,
       ),
+      routes: <String, WidgetBuilder>{
+        welcomeScreen: (BuildContext context) => WelcomeScreen(),
+        homeScreen: (BuildContext context) => const HomeScreen(),
+        signInScreen: (BuildContext context) => const HomeScreen(),
+        signUpScreen: (BuildContext context) => const HomeScreen(),
+        profileScreen: (BuildContext context) => const HomeScreen(),
+      },
     );
   }
 

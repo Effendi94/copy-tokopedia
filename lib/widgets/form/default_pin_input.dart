@@ -7,12 +7,10 @@ import 'package:copy_tokopedia/core.dart';
 class DefaultPinInput extends StatelessWidget {
   final String? Function(String?)? validator;
   final Function(String)? onCompleted;
-  final Function(String)? onSubmitted;
   const DefaultPinInput({
     Key? key,
     required this.validator,
     this.onCompleted,
-    this.onSubmitted,
   }) : super(key: key);
 
   @override
@@ -58,8 +56,7 @@ class DefaultPinInput extends StatelessWidget {
           errorBuilder: _errorBuilder,
           pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
           showCursor: true,
-          // onCompleted: onCompleted,
-          onSubmitted: onSubmitted,
+          onCompleted: onCompleted,
         ),
       ),
     );

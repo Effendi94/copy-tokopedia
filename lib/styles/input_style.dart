@@ -17,7 +17,7 @@ class InputStyles {
 
   static InputBorder borderActive = OutlineInputBorder(
     borderSide: BorderSide(
-      color: MyColors.appPrimaryColors,
+      color: MyColors.appSecondaryColors,
     ),
     borderRadius: BorderRadius.circular(15),
   );

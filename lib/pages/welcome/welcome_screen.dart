@@ -6,11 +6,10 @@ class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({Key? key}) : super(key: key);
 
   void _goToStart() {
-    debugPrint('Go to Start');
-    Get.bottomSheet(
-      PhoneNumberWidget(),
-      backgroundColor: MyColors.white,
-      isScrollControlled: true,
+    Get.to(
+      () => PhoneNumberWidget(),
+      transition: Transition.downToUp,
+      duration: const Duration(milliseconds: 500),
     );
   }
 
@@ -18,6 +17,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.white,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           ClipPath(

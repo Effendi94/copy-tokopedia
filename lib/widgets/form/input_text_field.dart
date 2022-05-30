@@ -1,16 +1,20 @@
 import 'package:copy_tokopedia/core.dart';
 
-class InputTextFieldWithLabel extends StatelessWidget {
+class InputTextField extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType inputType;
   final String label;
   final String? hintText;
-  const InputTextFieldWithLabel({
+  final String? Function(String?)? validator;
+  final int? maxLength;
+  const InputTextField({
     Key? key,
     required this.controller,
     this.inputType = TextInputType.text,
     required this.label,
     this.hintText,
+    this.validator,
+    this.maxLength,
   }) : super(key: key);
 
   @override
@@ -23,9 +27,11 @@ class InputTextFieldWithLabel extends StatelessWidget {
           style: TextStyles.inputLabel,
         ),
         const SizedBox(height: 5),
-        TextField(
+        TextFormField(
           controller: controller,
           keyboardType: inputType,
+          validator: validator,
+          maxLength: maxLength,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: TextStyles.inputHint,
